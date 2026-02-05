@@ -7,7 +7,9 @@ class AppEcommerce extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(scaffoldBackgroundColor: const Color(0xFFE2E2E2)),
       home: MainScreen(),
     );
   }

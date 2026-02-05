@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
 
 class SafeAreaWidget extends StatelessWidget {
-  const SafeAreaWidget({super.key});
+  final Function(int) changedIndex;
+  final int currentIndex;
+  const SafeAreaWidget({super.key, required this.changedIndex, required this.currentIndex});
 
   @override
   Widget build(BuildContext context) {
@@ -18,33 +20,48 @@ class SafeAreaWidget extends StatelessWidget {
             borderRadius: BorderRadius.all(Radius.circular(20)),
           ),
           child: Row(
-            mainAxisAlignment: .spaceBetween,
+            mainAxisAlignment: .spaceAround,
             mainAxisSize: .min,
             children: [
               BottomNavWidget(
                 icon: Ionicons.home,
-                onTap: () {},
+                onTap: () {changedIndex(0); },
                 color: Colors.white,
+                activeColor: Colors.amberAccent,
+                isActive: currentIndex==0,
+                label: 'home',
               ),
               BottomNavWidget(
                 icon: Ionicons.search,
-                onTap: () {},
+                onTap: () {changedIndex(1);},
                 color: Colors.white,
+                label: 'Search',
+                activeColor: Colors.amberAccent,
+                isActive: currentIndex==1,
               ),
               BottomNavWidget(
                 icon: Ionicons.add,
-                onTap: () {},
+                onTap: () {changedIndex(0);},
                 color: Colors.white,
+                label: '',
+                activeColor: Colors.amberAccent,
+                isActive: currentIndex==0,
               ),
               BottomNavWidget(
                 icon: Ionicons.cart,
-                onTap: () {},
+                onTap: () {changedIndex(3);},
                 color: Colors.white,
+                label: 'Cart',
+                activeColor: Colors.amberAccent,
+                isActive: currentIndex==3,
               ),
               BottomNavWidget(
                 icon: Ionicons.person,
-                onTap: () {},
+                onTap: () {changedIndex(4);},
                 color: Colors.white,
+                label: 'Profile',
+                activeColor: Colors.amberAccent,
+                isActive: currentIndex==4,
               ),
             ],
           ),
